@@ -73,19 +73,4 @@ PostSchema.index({geometry:'2dsphere'});
 
 
 module.exports = mongoose.model('Post', PostSchema);
-
-
-
-/*
-Post
-- title -String
-- price -String
-- description -String
-- images -array of Strings
-- location -String
-lat and lng to coordinates 
-- lat -number
-- lng -number
-- author -object id
-- reviews -array of objects
-*/
+ 
