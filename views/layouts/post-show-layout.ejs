@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%=title%></title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+	<link rel="stylesheet" href="/stylesheets/style.css">
+	<link rel="stylesheet" href="/stylesheets/post-show.css">
+	<link rel="stylesheet" href="/stylesheets/starability-coinFlip.min.css">
+<!-- font awesome -->
+	<script src="https://kit.fontawesome.com/21a496e29e.js"></script>
+ 
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+</head>
+<body> 
+	<% include ../partials/navbar %>
+	<% include ../partials/flash-messages %>
+	<%- body -%>
+<script>
+	//bottom ejs syntax is only here not js file. because javascript can't read bottom syntax
+var post = <%- JSON.stringify(post) %>;
+// <\%- -> Outputs the unescaped value into the template
+// JSONE.stringify() -> turns the post object into a string so it can be used in the client side JS
+</script>
+<script src="/javascripts/post-show.js"></script>
+
+
+</body>
+</html>

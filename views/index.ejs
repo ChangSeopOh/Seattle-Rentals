@@ -1,0 +1,17 @@
+<% layout('layouts/boilerplate') -%> 
+<!-- boilerplate by using ejs-mate -->
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+ 
+ <div id="map"></div>
+
+ <script>
+ 	mapboxgl.accessToken = "<%=mapBoxToken%>";
+ 	// above is from boilerplace's script 
+ 	var posts = { features:<%- JSON.stringify(posts)%> };
+ 	//const has more support than let, but neither is 100% on internet browser
+ </script>
+
+ <script src="/javascripts/allPostsClusterMap.js">
+ 	
+ </script>
