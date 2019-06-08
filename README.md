@@ -18,6 +18,7 @@
 - change password
 - Forgot Password
 - Sending Email (Sendgrid: reset password)
+- Heroku & MongoDB Server started
 
 # Things to do
 - Landing Page Design

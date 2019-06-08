@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+// process.env
 
 const createError = require('http-errors');
 const express = require('express');
@@ -27,9 +27,16 @@ const reviews = require('./routes/reviews');
 const app = express();
 
 // connect to the database
-mongoose.connect('mongodb://localhost:27017/seattle-rentals', {
-  useNewUrlParser: true,
-  useCreateIndex:true});
+mongoose.connect(process.env.DATABASEURL, {
+  useNewUrlParser:true, 
+  useFindAndModify: false 
+}).then(()=>{
+  console.log('Conntected to DB!');
+}).catch(err =>{
+  console.log('DB Error : ', err.message);
+});
+
+
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
