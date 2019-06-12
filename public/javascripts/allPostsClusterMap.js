@@ -1,9 +1,19 @@
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/light-v9',
-    center: [-98.55562, 39.809734],
-    zoom: 3.3
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [-122.335167,47.608013],
+    zoom: 7
 }); 
+
+//Center of America
+// var map = new mapboxgl.Map({
+//     container: 'map',
+//     style: 'mapbox://styles/mapbox/light-v9',
+//     center: [-98.55562, 39.809734],
+//     zoom: 3.3
+// }); 
+
+
 // container is like div
 // center is kansas city( center of USA)
 

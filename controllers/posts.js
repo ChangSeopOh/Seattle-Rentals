@@ -78,8 +78,8 @@ module.exports = {
 			}
 		}); //-1 is descending order
 
-		//const floorRating = post.calculateAvgRating(); //avg rating calculator only interger number. 
-		const floorRating = post.avgRating; 
+		const floorRating = post.calculateAvgRating(); //avg rating calculator only interger number. 
+		//const floorRating = post.avgRating; 
 		
 		res.render('posts/show', { post,mapBoxToken, floorRating });
 	},
