@@ -113,15 +113,28 @@ const middleware = {
 			// check if location exists, if it does then we know that the user
 			// submitted the search/filter form with a location query
 			if (location) {
-				// geocode the location to extract geo-coordinates (lat, lng)
-				const response = await geocodingClient
-				  .forwardGeocode({
-				    query: location,
-				    limit: 1
-				  })
-				  .send();
-				// destructure coordinates [ <longitude> , <latitude> ]
-				const { coordinates } = response.body.features[0].geometry;
+				let coordinates;
+				try{
+					location = JSON.parse(location);
+					//"[-97.234, 45.435]" JSON data
+					//if data is Seattle, WA then catch
+					coordinates = location;
+				}catch(err){
+
+					// geocode the location to extract geo-coordinates (lat, lng)
+					const response = await geocodingClient
+					  .forwardGeocode({
+					    query: location,
+					    limit: 1
+					  })
+					  .send();
+					// destructure coordinates [ <longitude> , <latitude> ]
+					coordinates  = response.body.features[0].geometry.coordinates;
+					
+
+				}
+
+
 				// get the max distance or set it to 25 mi
 				let maxDistance = distance || 25;
 				// we need to convert the distance to meters, one mile is approximately 1609.34 meters
